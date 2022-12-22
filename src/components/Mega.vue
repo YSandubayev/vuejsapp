@@ -6,7 +6,7 @@
   </div>
 
   <div id="nav">
-    <router-link to="/Mega">Mega</router-link> 
+    <router-link to="/shops/1">Mega</router-link> 
   </div>
 
 </template>
