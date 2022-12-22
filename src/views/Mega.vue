@@ -1,44 +1,34 @@
 <template>
-  <h2>Please, choose the shop which you visited and rate our service</h2>
-  
-  <Mega>
+  <div>
     <button v-on:click="sendEmoji('normal')">Normal 😃</button>
     <button v-on:click="sendEmoji('good')">Good 😍</button>
     <button v-on:click="sendEmoji('bad')">Bad 😎</button>
-  </Mega>
+  </div>
 
-  <MegaMoskva>
-    <button v-on:click="sendEmoji('normal')">Normal 😃</button>
-    <button v-on:click="sendEmoji('good')">Good 😍</button>
-    <button v-on:click="sendEmoji('bad')">Bad 😎</button>
-  </MegaMoskva>
-
-  <!-- <div id="nav">
+  <div id="nav">
     <router-link to="/Mega">Mega</router-link> |
-    <router-link to="/MegaMoskva">MegaMoskva</router-link>
-  </div> -->
+  </div>
 
 </template>
 
 <script>
-import axios from 'axios';
-import Mega from './components/Mega.vue';
-import MegaMoskva from './components/MegaMoskva.vue';
+import axios from 'axios'
 export default {
   name: 'App',
-  components: {
-    Mega,
-    MegaMoskva
-  },
   data() {
     return {
+      modifiedData: {
+        status: '',
+        ip_address: '',
+        shop_id: 1
+      },
       error: null
     }
   },
 
 methods: {
     sendEmoji(status) {
-      axios.post(`http://localhost:1337/api/feedbacks`, {
+      axios.post('http://localhost:1337/api/feedbacks', {
         data: {
             status: status, //modifiedData.status,
             ip_address: '126.12.29.29', //modifiedData.ip_address,
